@@ -1,1 +1,3 @@
-<p>clients-manager works!</p>
+<div *ngIf="clientsData != undefined">
+  <app-clients-table [ClientsData]="clientsData.clients"></app-clients-table>
+</div>

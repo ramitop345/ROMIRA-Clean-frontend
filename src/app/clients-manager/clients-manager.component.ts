@@ -18,7 +18,8 @@ export class ClientsManagerComponent implements OnInit{
 
   LoadClients(): void{
     this.clientsStorageService.LoadClients().subscribe(
-      data => { this.clientsData = data;
+      data => {
+        this.clientsData = data;
         console.log(data);
       },
       error => {

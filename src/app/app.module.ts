@@ -9,11 +9,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { ClientsManagerComponent } from './clients-manager/clients-manager.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ClientsTableComponent } from './clients-manager/clients-table/clients-table.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClientsManagerComponent,
+    ClientsTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
