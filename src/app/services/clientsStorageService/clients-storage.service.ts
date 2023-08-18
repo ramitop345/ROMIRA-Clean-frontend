@@ -17,7 +17,7 @@ export class ClientsStorageService {
     return this.http.get<ClientsWrapper>(this.uri);
   }
 
-  postClientData(clients: ClientsWrapper): Observable<ClientsWrapper> {
+  SaveClientsData(clients: ClientsWrapper): Observable<ClientsWrapper> {
     return this.http.post<ClientsWrapper>(this.uri, clients);
   }
 }
