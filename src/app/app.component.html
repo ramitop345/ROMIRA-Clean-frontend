@@ -1,22 +1,12 @@
-<p>
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>ROMIRA Clean</span>
-      <span class="spacer"></span>
-      <button mat-icon-button aria-label="Menu">
-        <mat-icon>menu</mat-icon>
-      </button>
-    </mat-toolbar-row>
+<div class="navbar">
+  <span class="logo-container"><img class="logo" src="../assets/images/logo2.png"></span>
+  <div class="nav-menu-container">
+    <span class="spacer"></span>
+    <a routerLink="/clients" routerLinkActive="active" ariaCurrentWhenActive="page"><button mat-button>Clients Manager</button></a>
 
-    <mat-toolbar-row>
-      <span>Second Line</span>
-      <span class="spacer"></span>
-      <button mat-icon-button class="favorite-icon" aria-label="heart icon">
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <button mat-icon-button class="share-icon" aria-label="share icon">
-        <mat-icon>share</mat-icon>
-      </button>
-    </mat-toolbar-row>
-  </mat-toolbar>
-</p>
+    <button mat-icon-button aria-label="Menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</div>
+<router-outlet></router-outlet>
