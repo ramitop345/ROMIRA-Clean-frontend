@@ -7,10 +7,12 @@ import {MatIconModule} from '@angular/material/icon';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { ClientsManagerComponent } from './clients-manager/clients-manager.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ClientsManagerComponent,
   ],
   imports: [
     BrowserModule,
