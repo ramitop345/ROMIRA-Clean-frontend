@@ -4,7 +4,8 @@ import { ClientsManagerComponent } from './clients-manager/clients-manager.compo
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  {path:'clients', component: ClientsManagerComponent}
+  {path:'clients', component: ClientsManagerComponent},
+  {path:'home', component: AppComponent}
   //{path:"**", component: ClientsManagerComponent}
 ];
 
