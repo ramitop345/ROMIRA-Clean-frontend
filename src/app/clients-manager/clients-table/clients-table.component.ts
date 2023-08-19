@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Clients } from 'src/app/model/Clients';
+import { ServiceStatuses } from 'src/app/model/ServiceStatuses';
 
 @Component({
   selector: 'app-clients-table',
@@ -7,9 +8,14 @@ import { Clients } from 'src/app/model/Clients';
   styleUrls: ['./clients-table.component.sass']
 })
 export class ClientsTableComponent implements OnInit{
+  constructor(){
+    this.minDate = new Date(new Date().getFullYear()-4,0,1);
+  }
   @Input() ClientsData: {[key: string]: Clients} = {};
   ClientsDataArray: { key: string, value: Clients }[] = [];
-  displayedColumns: string[] = ['Client-ID', 'Name', 'Phone Number', 'City', 'Appointment Date', 'Services', 'Status', 'Price'];
+  displayedColumns: string[] = ['Move','Client-ID', 'Name', 'Phone Number', 'City', 'Appointment Date', 'Services', 'Status', 'Price','Delete'];
+  minDate: Date;
+  dealStatuses: string[] = Object.values(ServiceStatuses);
 
   RefreshDisplay():void{
     if (this.ClientsData != null){
@@ -20,7 +26,9 @@ export class ClientsTableComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    setTimeout(()=>{
       this.RefreshDisplay();
+    },2000);
   }
 
 
