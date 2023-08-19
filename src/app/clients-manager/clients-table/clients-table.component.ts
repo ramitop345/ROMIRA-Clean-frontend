@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Clients } from 'src/app/model/Clients';
 import { ServiceStatuses } from 'src/app/model/ServiceStatuses';
+import { ServicesCatalog } from 'src/app/model/ServicesCatalog';
 
 @Component({
   selector: 'app-clients-table',
@@ -17,10 +18,12 @@ export class ClientsTableComponent implements OnInit{
   }
 
   @Input() ClientsData: {[key: string]: Clients} = {};
+  @Output() saveChanges: EventEmitter<any> = new EventEmitter();
   ClientsDataArray: { key: string, value: Clients }[] = [];
   displayedColumns: string[] = ['Move','Client-ID', 'Name', 'Phone Number', 'City', 'Appointment Date', 'Services', 'Status', 'Price','Delete'];
   minDate: Date;
   dealStatuses: string[] = Object.values(ServiceStatuses);
+  servicesCatalogValues = Object.values(ServicesCatalog);
 
   GetNextKey():string{
     var key: string = "client ";
@@ -29,6 +32,14 @@ export class ClientsTableComponent implements OnInit{
       count++;
     }
     return key+count;
+  }
+
+  addService(askedServices: ServicesCatalog[]) {
+    askedServices.push(ServicesCatalog.NONE);
+  }
+
+  removeService(index: number, key: string): void {
+    this.ClientsData[key].askedServices.splice(index, 1);
   }
 
   AddNewClient(){
@@ -45,5 +56,9 @@ export class ClientsTableComponent implements OnInit{
     if (this.ClientsData){
       this.ClientsDataArray = Object.entries(this.ClientsData).map(([key, value]) => ({ key, value }));
     }
+  }
+
+  SaveChanges(){
+    this.saveChanges.emit();
   }
 }
